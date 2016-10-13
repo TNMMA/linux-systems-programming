@@ -63,6 +63,7 @@ $ cd ..
 $ cd 31 && ./prog31 # if you wait 5 seconds, you will get timeout message
 $ cd ..
 $ ./32/prog32
+$ ./33/prog33
 ```
 
 Exercise List
@@ -99,6 +100,7 @@ Exercise List
 30. Write a program to re-read a reconfigure.conf file everytime a SIGHUP signal is received. Using the values in the reconfigure.conf file the program should be able to change its behavior without actually requiring a termination and restart.
 31. System calls such as read() are blocking and do not timeout (they can block forever waiting for data) – use the SIGALRM signal that gets raised by the alarm() system call to print a message to the screen when the user doesn’t enter any input for longer than 5 seconds.
 32. Write a TCP echo server listening on port 8000, i.e. it replies back with the same text that the client sends to it. Test it out with three concurrent telnet connections and check its working with lsof and wireshark.
+33. Extend the program #32 to behave like a rot13 server (rotate each character by 13, instead of a simple echo server.
 
 
 License
