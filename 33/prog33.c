@@ -19,11 +19,15 @@ void rot13(unsigned char *input, unsigned char *output, int length) {
   /* Ignore \r\n carriage return and line feed from the stream */
   length = length - 2; 
   while(length--) {
-    *output = *input + 13;
-    if(*output > 'z') {
-      *output = *output - 26;
+    /* Dont rotate space */
+    if(*input == ' ') {
+      *output = ' ';
+    } else {
+      *output = *input + 13;
+      if(*output > 'z') {
+        *output = *output - 26;
+      }
     }
-    printf("input-char = %c, output-char = %c\n", *input, *output);
     input++;
     output++;
   }
