@@ -100,8 +100,8 @@ Exercise List
 30. Write a program to re-read a reconfigure.conf file everytime a SIGHUP signal is received. Using the values in the reconfigure.conf file the program should be able to change its behavior without actually requiring a termination and restart.
 31. System calls such as read() are blocking and do not timeout (they can block forever waiting for data) – use the SIGALRM signal that gets raised by the alarm() system call to print a message to the screen when the user doesn’t enter any input for longer than 5 seconds.
 32. Write a TCP echo server listening on port 8000, i.e. it replies back with the same text that the client sends to it. Test it out with three concurrent telnet connections and check its working with lsof and wireshark.
-33. Extend the program #32 to behave like a rot13 server (rotate each character by 13, instead of a simple echo server.
-
+33. Extend the program #32 to behave like a rot13 server (rotate each character by 13, instead of a simple echo server. Test it out with three concurrent telnet connection and check its working with lsof and wireshark. Further update /etc/services file so that lsof recognizes the TCP port 8000 as rot13
+34. Write a client program to the rot13 server, utilize gethostbyname("localhost") and getservbyname("rot13"). The client program must read from stdin, send it to the server, read from the server and send that to stdout. It is sequential in nature for the timebeing. Test with two instances of the client, as well as server not working, etc. to handle various error conditions.
 
 License
 ==========
