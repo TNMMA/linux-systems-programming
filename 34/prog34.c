@@ -21,11 +21,6 @@ int main(int argc, char *argv[]) {
   int count;
   char buffer[BUF_SIZE];
 
-  /* Create Socket */
-  if( (sock=socket(AF_INET, SOCK_STREAM, 0)) == -1) {
-    handle_error("socket");
-  }
-
   /* Get Server Information */
   /* Assume that /etc/services has been updated with rot13 details */
   service_info = getservbyname("rot13", "tcp");
@@ -35,6 +30,11 @@ int main(int argc, char *argv[]) {
   server.sin_family = AF_INET;
   memcpy(&server.sin_addr, host_info->h_addr, host_info->h_length);
   server.sin_port = service_info->s_port;
+
+  /* Create Socket */
+  if( (sock=socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+    handle_error("socket");
+  }
 
   /* Connect to Server */
   if(connect(sock, (struct sockaddr *)&server, sizeof(server)) == -1) {
