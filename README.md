@@ -64,6 +64,9 @@ $ cd 31 && ./prog31 # if you wait 5 seconds, you will get timeout message
 $ cd ..
 $ ./32/prog32
 $ ./33/prog33
+$ ./34/prog34
+$ ./35/prog35
+$ ./36/prog36
 ```
 
 Exercise List
@@ -102,7 +105,10 @@ Exercise List
 32. Write a TCP echo server listening on port 8000, i.e. it replies back with the same text that the client sends to it. Test it out with three concurrent telnet connections and check its working with lsof and wireshark.
 33. Extend the program #32 to behave like a rot13 server (rotate each character by 13, instead of a simple echo server. Test it out with three concurrent telnet connection and check its working with lsof and wireshark. Further update /etc/services file so that lsof recognizes the TCP port 8000 as rot13
 34. Write a client program to the rot13 server, utilize gethostbyname("localhost") and getservbyname("rot13"). The client program must read from stdin, send it to the server, read from the server and send that to stdout. It is sequential in nature for the timebeing. Test with two instances of the client, as well as server not working, etc. to handle various error conditions.
-
+35. Modify the program #34 that connects to the rot13 server by using the modern way of populating the server details using the getaddrinfo() system call. Make sure the code is completely protocol agnostic such that if the rot13 server changes from IPv4 to IPv6, the client is able to connect to it. 
+36. Rewrite program 33 to work with IPv6. Confirm with program 35 is able to work with IPv6 version of the server, without any changes in the client code.
+37. Write a UDP client to stream a file from the TFTP server and display it on stdout. Download and install the UDP server on your Ubuntu machine with (sudo apt-get install xinetd tftpd, and set up the xinetd to start the tftp service by setting up the files in /etc/xinetd.d/).
+ 
 License
 ==========
 The MIT License (MIT)

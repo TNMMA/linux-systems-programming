@@ -64,19 +64,19 @@ void connectionHandler(int fdInput, int fdOutput) {
 int main(int argc, char *argv[]) {
   int sock, fd;
   socklen_t clientLen;
-  struct sockaddr_in server, client;
+  struct sockaddr_in client;
+  struct sockaddr_in6 server6;
 
   /* Create a socket */
-  if( (sock=socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+  if( (sock=socket(AF_INET6, SOCK_STREAM, 0)) == -1) {
     handle_error("socket");
   }
 
   /* Bind Socket to Port 8000 */
-  server.sin_family = AF_INET;
-  server.sin_addr.s_addr = htonl(INADDR_ANY);
-  server.sin_port = htons(PORT_ADDR);
-
-  if(bind(sock, (struct sockaddr *)&server, (socklen_t)sizeof(server)) == -1) {
+  server6.sin6_family = AF_INET6;
+  server6.sin6_addr = in6addr_any;
+  server6.sin6_port = htons(PORT_ADDR);
+  if(bind(sock, (struct sockaddr *)&server6, (socklen_t)sizeof(server6)) == -1) {
     handle_error("bind");
   }
   

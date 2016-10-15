@@ -48,11 +48,13 @@ int main(int argc, char *argv[]) {
         rp = NULL;
       } else {
         /* Unable to connect, close the socket connection */
+        printf("Unable to connect, move to the next\n");
         rp = rp->ai_next;
         close(sock);
       }
     } else {
       /* Unable to create socket, move to next connection */
+      printf("Unable to create socket, move to the next\n");
       rp = rp->ai_next;
     }
   }
