@@ -31,6 +31,11 @@ int main(int argc, char *argv[]) {
     handle_error("setsockopt");
   }
 
+  /* Setup socket to reuse port so that multiple processes can bind */
+  if(setsockopt(sock, SOL_SOCKET, SO_REUSEPORT, (char *)&yes, sizeof(yes)) == -1) {
+    handle_error("setsockopt");
+  }
+
   /* Bind socket to UDP Broadcast Host Addr and Port */
   server.sin_family = AF_INET;
   server.sin_addr.s_addr = htonl(INADDR_ANY);
