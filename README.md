@@ -67,6 +67,11 @@ $ ./33/prog33
 $ ./34/prog34
 $ ./35/prog35
 $ ./36/prog36
+$ ./37/prog37
+$ ./38/prog38
+$ ./39/prog39
+$ ./40/prog40
+$ ./41/prog41
 ```
 
 Exercise List
@@ -108,6 +113,10 @@ Exercise List
 35. Modify the program #34 that connects to the rot13 server by using the modern way of populating the server details using the getaddrinfo() system call. Make sure the code is completely protocol agnostic such that if the rot13 server changes from IPv4 to IPv6, the client is able to connect to it. 
 36. Rewrite program 33 to work with IPv6. Confirm with program 35 is able to work with IPv6 version of the server, without any changes in the client code.
 37. Write a UDP client to stream a file from the TFTP server and display it on stdout. Download and install the UDP server on your Ubuntu machine with (sudo apt-get install xinetd tftpd, and set up the xinetd to start the tftp service by setting up the files in /etc/xinetd.d/).
+38. Write a distributed update service, i.e. a service that uses UDP broadcast to broadcast an update. The service should also have a client end that listens for broadcasts and prints them on the screen. Test it by concurrently running 3 instances of the program and get each one to broadcast a typed up message.
+39. Extend the server program written in Program #33 and make it concurrent using multithreading, i.e. using fork(). Inspect if zombie processes are created and get them handled using SIGCHLD signal handler
+40. Extend the server program written in Program #33 and make it concurrent within the framework of a “single process server” using the select() system call.
+41. Write a simple program that spawns a thread, prints that it is in the thread, sleeps for 1000seconds and returns exit code 99. The parent waits for the thread to complete, and prints out the child’s exit code. Examine the output of ps: ps –eLF | egrep ‘UID|prog41’ – notice the LWP = light weight process and contains the details of the thread.
  
 License
 ==========
