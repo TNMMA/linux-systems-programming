@@ -33,6 +33,7 @@ build
 *.sql
 *.sqlite
 *.txt
+!CMakeLists.txt
 
 # Project and Workspace Files #
 ###############################
