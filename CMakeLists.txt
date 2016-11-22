@@ -1,9 +1,10 @@
 #================================================================================
 # @fileOverview Top level build file
 # @author Ashish Bajaj, bajaj.ashish@gmail.com
-# @copyright Copyright (c) 2016 Elear Solutions Tech Private Limited. All 
+# @copyright Copyright (c) Ashish Bajaj, bajaj.ashish@gmail.com. All 
 # rights reserved. 
-# @license To any person (the "Recipient") obtaining a copy of this software and        
+# @license MIT License:
+# To any person (the "Recipient") obtaining a copy of this software and        
 # associated documentation files (the "Software"):                             
 #                                                                              
 # Permission is hereby granted, free of charge, to any person obtaining a copy
